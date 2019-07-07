@@ -59,8 +59,8 @@ $router->get('profile', function () {
     return redirect()->route('route.profile');
 });
 
-// Route Group
-$router->group(['prefix' => 'admin'], function () use ($router) {
+// Route Group and middelware
+$router->group(['prefix' => 'admin', 'middleware' => 'auth'], function () use ($router) {
     $router->get('home', function () {
         return 'Home Admin';
     });
