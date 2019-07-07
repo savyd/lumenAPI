@@ -20,52 +20,12 @@ $router->get('/key', function () {
     return str_random(32);
 });
 
-$router->get('/get', function () {
-    return 'GET';
-});
-$router->post('/post', function () {
-    return 'POST';
-});
-$router->put('/put', function () {
-    return 'PUT';
-});
-$router->patch('/patch', function () {
-    return 'PATCH';
-});
-$router->delete('/delete', function () {
-    return 'DELETE';
-});
-$router->options('/options', function () {
-    return 'OPTIONS';
-});
 
-
-// Basic Router Parameter
-$router->get('/user/{id}', function ($id) {
-    return 'User id ='. $id;
-});
-
-// Optional Route Parameter
-$router->get('optional[/{param}]', function ($param = null) {
-    return $param;
-});
-
-// As Route Name
-$router->get('profile/sayid', ['as' => 'route.profile', function () {
-    return "Route Sayid = ". route('route.profile');
+// Router middleware
+$router->get('/admin/home', ['middleware' => 'age', function () {
+    return 'Old Enough';
 }]);
 
-$router->get('profile', function () {
-    return redirect()->route('route.profile');
-});
-
-// Route Group and middelware
-$router->group(['prefix' => 'admin', 'middleware' => 'auth'], function () use ($router) {
-    $router->get('home', function () {
-        return 'Home Admin';
-    });
-
-    $router->get('profile', function () {
-        return 'Profile Admin';
-    });
+$router->get('/fail', function () {
+    return 'Not Yet Mature';
 });

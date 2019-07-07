@@ -15,6 +15,9 @@ class Age
      */
     public function handle($request, Closure $next)
     {
-        ($request->age < 17)->return() ? redirect('/fail') : $next($request);
+        if ($request->age < 17) {
+            return redirect('/fail');
+        }
+        return $next($request);
     }
 }
