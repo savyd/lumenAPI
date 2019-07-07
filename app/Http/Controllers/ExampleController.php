@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use \Illuminate\Http\Request;
+
 class ExampleController extends Controller
 {
     /**
@@ -14,9 +17,11 @@ class ExampleController extends Controller
         $this->middleware('age', ['except' => ['generateKey']]);
     }
 
-    public function generateKey()
+    public function generateKey(Request $request)
     {
-        return str_random(32);
+        $mth = $request->method();
+        $pth = $request->path();
+        return str_random(32) ."<br>". $mth ."<br>". $pth;
     }
 
     public function getProfile()
