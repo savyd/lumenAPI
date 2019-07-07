@@ -46,6 +46,15 @@ $router->get('/user/{id}', function ($id) {
 });
 
 // Optional Route Parameter
-$route->get('optional[/{param}]', function ($param = null) {
+$router->get('optional[/{param}]', function ($param = null) {
     return $param;
+});
+
+// As Route Name
+$router->get('profile/sayid', ['as' => 'route.profile', function () {
+    return "Route Sayid = ". route('route.profile');
+}]);
+
+$router->get('profile', function () {
+    return redirect()->route('route.profile');
 });
