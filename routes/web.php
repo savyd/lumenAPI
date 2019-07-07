@@ -58,3 +58,14 @@ $router->get('profile/sayid', ['as' => 'route.profile', function () {
 $router->get('profile', function () {
     return redirect()->route('route.profile');
 });
+
+// Route Group
+$router->group(['prefix' => 'admin'], function () use ($router) {
+    $router->get('home', function () {
+        return 'Home Admin';
+    });
+
+    $route->('profile', function () {
+        return 'Profile Admin';
+    });
+});
