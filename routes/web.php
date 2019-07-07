@@ -38,3 +38,14 @@ $router->delete('/delete', function () {
 $router->options('/options', function () {
     return 'OPTIONS';
 });
+
+
+// Basic Router Parameter
+$router->get('/user/{id}', function ($id) {
+    return 'User id ='. $id;
+});
+
+// Optional Route Parameter
+$route->get('optional[/{param}]', function ($param = null) {
+    return $param;
+});
