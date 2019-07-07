@@ -11,7 +11,7 @@ class ExampleController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('age', ['only' => ['getProfile', 'generateKey']]);
+        $this->middleware('age', ['except' => ['generateKey']]);
     }
 
     public function generateKey()
