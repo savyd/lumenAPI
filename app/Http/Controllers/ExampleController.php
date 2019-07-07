@@ -19,5 +19,10 @@ class ExampleController extends Controller
         return str_random(32);
     }
 
+    public function getProfile()
+    {
+        return 'Route Profile';
+    }
+
     //
 }

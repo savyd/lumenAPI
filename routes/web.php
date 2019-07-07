@@ -18,6 +18,8 @@ $router->get('/', function () use ($router) {
 // Generate Application Key
 $router->get('/key', 'ExampleController@generateKey');
 
+$route->get('/profile', ['as' => 'profile', 'uses' => 'ExampleController@getPost']);
+
 
 // Router middleware
 $router->get('/admin/home', ['middleware' => 'age', function () {
