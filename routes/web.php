@@ -65,7 +65,7 @@ $router->group(['prefix' => 'admin'], function () use ($router) {
         return 'Home Admin';
     });
 
-    $route->('profile', function () {
+    $router->get('profile', function () {
         return 'Profile Admin';
     });
 });
