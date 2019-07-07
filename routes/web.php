@@ -18,13 +18,12 @@ $router->get('/', function () use ($router) {
 // Generate Application Key
 $router->get('/key', 'ExampleController@generateKey');
 
-$route->get('/profile', ['as' => 'profile', 'uses' => 'ExampleController@getPost']);
+$router->get('/profile', ['as' => 'profile', 'uses' => 'ExampleController@getProfile']);
 
 
-// Router middleware
-$router->get('/admin/home', ['middleware' => 'age', function () {
+$router->get('/admin/home', function () {
     return 'Old Enough';
-}]);
+});
 
 $router->get('/fail', function () {
     return 'Not Yet Mature';
